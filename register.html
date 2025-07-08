@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-black text-white font-body">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register | Son of Grace Exchange</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: '#FFD700',
+            black: '#000000',
+            white: '#ffffff',
+          },
+          fontFamily: {
+            spaghetti: ['"Pacifico"', 'cursive'],
+            body: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body class="bg-black text-white font-body">
+
+  <!-- HEADER -->
+  <header class="bg-black shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
+      <div class="text-gold text-2xl font-spaghetti">Son of Grace Exchange</div>
+      <nav class="hidden md:flex space-x-6 text-gold text-sm font-semibold">
+        <a href="index.html" class="hover:text-white">Home</a>
+        <a href="#services" class="hover:text-white">Services</a>
+        <a href="#contact" class="hover:text-white">Contact</a>
+      </nav>
+      <button id="menu-btn" class="md:hidden text-gold focus:outline-none">
+        <i data-feather="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- SIDEBAR -->
+  <div id="overlay" class="fixed inset-0 bg-black bg-opacity-60 z-40 hidden"></div>
+  <div id="mobile-sidebar" class="fixed top-0 left-0 w-64 h-full bg-black text-gold z-50 transform -translate-x-full transition-transform duration-300 ease-in-out">
+    <div class="flex justify-between items-center px-4 py-4 border-b border-gold">
+      <div class="flex space-x-4">
+        <a href="#"><i data-feather="facebook" class="w-5 h-5"></i></a>
+        <a href="#"><i data-feather="instagram" class="w-5 h-5"></i></a>
+        <a href="#"><i data-feather="mail" class="w-5 h-5"></i></a>
+      </div>
+      <button id="close-btn" class="text-gold"><i data-feather="x" class="w-6 h-6"></i></button>
+    </div>
+    <nav class="flex flex-col px-4 py-4 space-y-4 font-semibold">
+      <a href="index.html" class="hover:text-white">Home</a>
+      <a href="#services" class="hover:text-white">Services</a>
+      <a href="#contact" class="hover:text-white">Contact</a>
+    </nav>
+  </div>
+
+  <!-- REGISTER FORM -->
+  <main class="flex items-center justify-center min-h-screen px-4">
+    <div class="w-full max-w-md bg-black p-8 rounded-lg border border-gold shadow-md">
+      <h2 class="text-2xl font-bold text-gold text-center mb-6">Create an Account</h2>
+
+      <form id="registerForm" class="space-y-4">
+        <div>
+          <label for="firstName" class="block text-sm mb-1">First Name</label>
+          <input type="text" id="firstName" placeholder="Your first name"
+            class="w-full px-3 py-2 bg-transparent border-b border-gold text-white focus:outline-none" required />
+        </div>
+
+        <div>
+          <label for="mobile" class="block text-sm mb-1">Mobile Number</label>
+          <input type="tel" id="mobile" placeholder="e.g. 08012345678"
+            class="w-full px-3 py-2 bg-transparent border-b border-gold text-white focus:outline-none" required />
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm mb-1">Email Address</label>
+          <input type="email" id="email" placeholder="you@example.com"
+            class="w-full px-3 py-2 bg-transparent border-b border-gold text-white focus:outline-none" required />
+        </div>
+
+        <div class="relative">
+          <label for="password" class="block text-sm mb-1">Password</label>
+          <input type="password" id="password" placeholder="Enter password"
+            class="w-full px-3 py-2 bg-transparent border-b border-gold text-white pr-10 focus:outline-none" required />
+          <button type="button" class="absolute top-7 right-2 text-gold toggle-password" data-target="password">
+            <i data-feather="eye"></i>
+          </button>
+        </div>
+
+        <div class="relative">
+          <label for="confirmPassword" class="block text-sm mb-1">Confirm Password</label>
+          <input type="password" id="confirmPassword" placeholder="Confirm password"
+            class="w-full px-3 py-2 bg-transparent border-b border-gold text-white pr-10 focus:outline-none" required />
+          <button type="button" class="absolute top-7 right-2 text-gold toggle-password" data-target="confirmPassword">
+            <i data-feather="eye"></i>
+          </button>
+        </div>
+
+        <button type="submit" class="w-full bg-gold text-black py-2 font-bold rounded hover:bg-yellow-400 transition">
+          Register
+        </button>
+      </form>
+
+      <p class="mt-4 text-sm text-center">
+        Already have an account?
+        <a href="login.html" class="underline text-white hover:text-gold transition">Login</a>
+      </p>
+      <p id="auth-msg" class="mt-4 text-center text-red-500 text-sm hidden"></p>
+    </div>
+  </main>
+
+  <!-- CTA + FOOTER -->
+  <section class="bg-gradient-to-r from-gold to-yellow-400 text-black py-6 px-6 mt-12">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="text-center md:text-left">
+        <h2 class="text-xl md:text-2xl font-bold mb-1">Get Started with Son of Grace</h2>
+        <p class="text-sm">Flexible services. Earn daily. No hassle.</p>
+      </div>
+      <div class="flex gap-4">
+        <a href="register.html" class="bg-black text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-900 transition">Register</a>
+        <a href="login.html" class="border border-black text-black px-5 py-2 rounded-full text-sm font-semibold hover:bg-black hover:text-white transition">Login</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-black text-gray-400 pt-16 pb-8 px-6">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 text-sm">
+      <div><h4 class="text-white font-semibold mb-3">Services</h4><ul class="space-y-2">
+        <li><a href="#" class="hover:text-gold">Gift Cards</a></li>
+        <li><a href="#" class="hover:text-gold">Data & Airtime</a></li>
+        <li><a href="#" class="hover:text-gold">POS Devices</a></li></ul>
+      </div>
+      <div><h4 class="text-white font-semibold mb-3">Support</h4><ul class="space-y-2">
+        <li><a href="#" class="hover:text-gold">Help Center</a></li>
+        <li><a href="#" class="hover:text-gold">FAQs</a></li></ul>
+      </div>
+      <div><h4 class="text-white font-semibold mb-3">Company</h4><ul class="space-y-2">
+        <li><a href="#" class="hover:text-gold">About Us</a></li>
+        <li><a href="#" class="hover:text-gold">Contact</a></li></ul>
+      </div>
+      <div><h4 class="text-white font-semibold mb-3">Social</h4><ul class="space-y-2">
+        <li><a href="#" class="hover:text-gold">Facebook</a></li>
+        <li><a href="#" class="hover:text-gold">Instagram</a></li></ul>
+      </div>
+    </div>
+    <div class="mt-12 pt-6 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+      <p>© 2025 Son of Grace Exchange. All rights reserved.</p>
+      <p class="mt-2 md:mt-0">All systems operational ✅</p>
+    </div>
+  </footer>
+
+  <script>
+    feather.replace();
+
+    document.querySelectorAll('.toggle-password').forEach(button => {
+      button.addEventListener('click', () => {
+        const input = document.getElementById(button.dataset.target);
+        const isPassword = input.type === 'password';
+        input.type = isPassword ? 'text' : 'password';
+        button.innerHTML = isPassword
+          ? feather.icons["eye-off"].toSvg()
+          : feather.icons["eye"].toSvg();
+      });
+    });
+
+    const menuBtn = document.getElementById('menu-btn');
+    const closeBtn = document.getElementById('close-btn');
+    const sidebar = document.getElementById('mobile-sidebar');
+    const overlay = document.getElementById('overlay');
+
+    menuBtn.addEventListener('click', () => {
+      sidebar.classList.remove('-translate-x-full');
+      overlay.classList.remove('hidden');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      sidebar.classList.add('-translate-x-full');
+      overlay.classList.add('hidden');
+    });
+
+    overlay.addEventListener('click', () => {
+      sidebar.classList.add('-translate-x-full');
+      overlay.classList.add('hidden');
+    });
+  </script>
+
+  <script src="auth.js"></script>
+</body>
+</html>

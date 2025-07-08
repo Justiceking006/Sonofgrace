@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Son of Grace Exchange</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: '#FFD700',
+            black: '#000000',
+            white: '#ffffff',
+          },
+          fontFamily: {
+            spaghetti: ['"Pacifico"', 'cursive'],
+            body: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+  section > * {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  section.in-view > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body class="bg-black text-white font-body">
+
+  <!-- HEADER -->
+  <header class="bg-black shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
+      <!-- Logo -->
+      <div class="text-gold text-2xl font-spaghetti">
+        Son of Grace Exchange
+      </div>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex space-x-6 text-gold text-sm font-semibold">
+        <a href="#about" class="hover:text-white">About</a>
+        <a href="#services" class="hover:text-white">Services</a>
+        <a href="#pricing" class="hover:text-white">Pricing</a>
+        <a href="login.html" class="hover:text-white">Login</a>
+        <a href="register.html" class="hover:text-white">Register</a>
+      </nav>
+
+      <!-- Hamburger Icon for Mobile -->
+      <button id="menu-btn" class="md:hidden text-gold focus:outline-none">
+        <i data-feather="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Overlay -->
+  <div id="overlay" class="fixed inset-0 bg-black bg-opacity-60 z-40 hidden"></div>
+
+  <!-- Sidebar Mobile Menu -->
+  <div id="mobile-sidebar" class="fixed top-0 left-0 w-64 h-full bg-black text-gold z-50 transform -translate-x-full transition-transform duration-300 ease-in-out">
+    <!-- Top: Social Icons + Close -->
+    <div class="flex justify-between items-center px-4 py-4 border-b border-gold">
+      <div class="flex space-x-4">
+        <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+          <i data-feather="facebook" class="w-5 h-5 hover:text-white transition"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+          <i data-feather="instagram" class="w-5 h-5 hover:text-white transition"></i>
+        </a>
+        <a href="mailto:support@sonofgrace.com" aria-label="Email">
+          <i data-feather="mail" class="w-5 h-5 hover:text-white transition"></i>
+        </a>
+      </div>
+      <button id="close-btn" class="text-gold focus:outline-none">
+        <i data-feather="x" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Menu Links -->
+    <nav class="flex flex-col px-4 py-4 space-y-4 font-semibold">
+      <a href="#about" class="hover:text-white">About</a>
+      <a href="#services" class="hover:text-white">Services</a>
+      <a href="#pricing" class="hover:text-white">Pricing</a>
+      <a href="login.html" class="hover:text-white">Login</a>
+      <a href="register.html" class="hover:text-white">Register</a>
+    </nav>
+  </div>
+
+  <!-- HERO SECTION -->
+<!-- HERO SECTION -->
+<section class="bg-black text-white px-4 py-12 md:py-20">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+    
+    <!-- Text Content - Comes First Always -->
+    <div class="w-full md:w-1/2 order-1 md:order-none">
+      <!-- Subtitle -->
+      <h5 class="text-gold text-sm uppercase tracking-widest mb-2">Your Trusted Digital Hub</h5>
+
+      <!-- Headline -->
+      <h2 class="text-white text-4xl md:text-5xl font-bold leading-tight mb-4">
+        Welcome to Son of Grace Exchange
+      </h2>
+
+      <!-- Primary Paragraph -->
+      <p class="text-white text-base md:text-lg mb-4">
+        We simplify your access to airtime, data, gift card conversion, and currency exchange all in one secure platform.
+      </p>
+
+      <!-- Secondary Paragraph -->
+      <p class="text-gray-300 text-sm md:text-base mb-6">
+        From Moniepoint POS sales to crypto exchanges — we provide fast, trusted, and affordable service nationwide.
+      </p>
+
+      <!-- Call-to-Action Buttons -->
+      <div class="flex flex-wrap gap-4">
+        <a href="login.html" class="bg-gold text-black font-semibold px-6 py-3 rounded-lg shadow hover:bg-yellow-400 transition duration-300">
+          Login
+        </a>
+        <a href="#explore" class="border border-gold text-gold font-semibold px-6 py-3 rounded-lg hover:bg-gold hover:text-black transition duration-300">
+          Explore
+        </a>
+      </div>
+    </div>
+
+    <!-- Hero Image - Shows After on Mobile -->
+    <div class="w-full md:w-1/2 order-2 md:order-none">
+      <img src="hero_1.png" alt="Son of Grace Exchange Hero Image" class="w-full h-auto rounded-xl shadow-lg" />
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS SECTION -->
+<section id="services" class="bg-black text-white px-4 py-16">
+  <div class="max-w-4xl mx-auto text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">
+      Why Choose Son of Grace Exchange?
+    </h2>
+    <p class="text-gray-300 text-base md:text-lg">
+      Whether it's airtime, gift cards, currency swap, or a POS terminal — here's why thousands trust us daily.
+    </p>
+  </div>
+
+  <!-- Benefit Cards -->
+  <div class="max-w-4xl mx-auto space-y-6">
+    
+    <!-- Benefit 1 -->
+    <div class="bg-white bg-opacity-5 rounded-xl p-6 shadow-md flex items-start space-x-4">
+      <div class="text-gold text-3xl">
+        <i data-feather="dollar-sign"></i>
+      </div>
+      <div>
+        <h3 class="text-white font-semibold text-lg mb-1">Best Market Rates</h3>
+        <p class="text-gray-300 text-sm">
+          We offer competitive rates on all exchanges — from airtime to crypto to gift cards.
+        </p>
+      </div>
+    </div>
+
+    <!-- Benefit 2 -->
+    <div class="bg-white bg-opacity-5 rounded-xl p-6 shadow-md flex items-start space-x-4">
+      <div class="text-gold text-3xl">
+        <i data-feather="gift"></i>
+      </div>
+      <div>
+        <h3 class="text-white font-semibold text-lg mb-1">Flexible Gift Card Options</h3>
+        <p class="text-gray-300 text-sm">
+          Trade thousands of Nigerian and international gift cards with ease — all in one platform.
+        </p>
+      </div>
+    </div>
+
+    <!-- Benefit 3 -->
+    <div class="bg-white bg-opacity-5 rounded-xl p-6 shadow-md flex items-start space-x-4">
+      <div class="text-gold text-3xl">
+        <i data-feather="zap"></i>
+      </div>
+      <div>
+        <h3 class="text-white font-semibold text-lg mb-1">Instant Transactions</h3>
+        <p class="text-gray-300 text-sm">
+          Receive data, airtime, or payment confirmations in seconds — we don’t delay.
+        </p>
+      </div>
+    </div>
+
+    <!-- Benefit 4 -->
+    <div class="bg-white bg-opacity-5 rounded-xl p-6 shadow-md flex items-start space-x-4">
+      <div class="text-gold text-3xl">
+        <i data-feather="shield"></i>
+      </div>
+      <div>
+        <h3 class="text-white font-semibold text-lg mb-1">Secure & Reliable</h3>
+        <p class="text-gray-300 text-sm">
+          Your data and funds are protected with bank-grade encryption and strict verification processes.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- AIRTIME & DATA SERVICE SECTION -->
+<section class="bg-black text-white py-20 px-4 space-y-16">
+
+<!-- Block 1 (Updated with Circular Image Crop) -->
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10">
+  <!-- Text -->
+  <div class="md:w-1/2 text-center md:text-left">
+    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+      All Networks, One Platform
+    </h2>
+    <p class="text-gray-300 text-base md:text-lg mb-4">
+      MTN, Airtel, Glo, 9mobile — we’ve got you covered. Recharge seamlessly across all networks from one wallet.
+    </p>
+    <p class="text-gray-400 text-sm mb-6">
+      Enjoy reliable airtime top-up, instant delivery, and 100% network uptime — even during peak hours.
+    </p>
+  </div>
+
+  <!-- Image as Circle -->
+  <div class="md:w-1/2 flex justify-center">
+    <img src="aritme.png" alt="All Network Recharge" class="rounded-full w-64 h-64 object-cover shadow-lg" />
+  </div>
+</div>
+
+  <!-- Block 2 -->
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row-reverse items-center gap-10">
+    <!-- Text -->
+    <div class="md:w-1/2 text-center md:text-left">
+      <h2 class="text-2xl md:text-3xl font-semibold text-white mb-4">
+        Discounted Data Plans
+      </h2>
+      <p class="text-gray-300 text-base md:text-lg mb-4">
+        Buy data plans at prices way below market. We partner directly with VTU aggregators so you earn more while spending less.
+      </p>
+      <p class="text-gray-400 text-sm mb-6">
+        Daily, weekly, and monthly plans available. Buy for yourself or become a reseller.
+      </p>
+    </div>
+    <!-- Image -->
+    <div class="md:w-1/2">
+      <img src="aritme2.png" alt="Discounted Data Plans" class="rounded-2xl shadow-lg w-full h-auto object-cover" />
+    </div>
+  </div>
+
+  <!-- Block 3 -->
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10">
+    <!-- Text -->
+    <div class="md:w-1/2 text-center md:text-left">
+      <h2 class="text-2xl md:text-3xl font-semibold text-white mb-4">
+        Reseller-Friendly Interface
+      </h2>
+      <p class="text-gray-300 text-base md:text-lg mb-4">
+        Our dashboard is built for agents and entrepreneurs. Monitor your earnings, fund wallet, and serve customers easily.
+      </p>
+      <p class="text-gray-400 text-sm mb-6">
+        Plus, automated billing and performance tracking to grow your VTU business on the go.
+      </p>
+      <a href="login.html" class="inline-block bg-gold text-black font-semibold px-6 py-3 rounded-lg shadow hover:bg-yellow-400 transition duration-300">
+        Go to Dashboard
+      </a>
+    </div>
+    <!-- Image -->
+    <div class="md:w-1/2">
+      <img src="aritme3.png" alt="VTU Dashboard" class="rounded-2xl shadow-lg w-full h-auto object-cover" />
+    </div>
+  </div>
+
+</section>
+<!-- GIFT CARD SERVICE SECTION -->
+<section class="bg-black text-white py-16 px-4">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+
+    <!-- Text Content -->
+    <div class="md:w-1/2 text-center md:text-left">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Exchange Gift Cards Instantly
+      </h2>
+      <p class="text-gray-300 text-base md:text-lg mb-4">
+        Got unused gift cards? Turn them into instant cash or crypto at the best market rates. We accept a wide range of Nigerian and international gift cards.
+      </p>
+      <p class="text-gray-400 text-sm mb-6">
+        All trades are processed swiftly and securely. Join thousands who trust Son of Grace Exchange for their gift card conversion needs.
+      </p>
+      
+      <a href="login.html" class="inline-block bg-gold text-black font-semibold px-6 py-3 rounded-lg shadow hover:bg-yellow-400 transition duration-300">
+        Go to Dashboard
+      </a>
+    </div>
+
+    <!-- Image -->
+    <div class="md:w-1/2">
+      <img src="gift card.png" alt="Gift Card Service" class="w-full h-auto rounded-xl shadow-lg" />
+    </div>
+
+  </div>
+</section>
+
+<!-- MONIEPOINT POS SALES SECTION -->
+<section class="bg-black text-white py-16 px-4">
+  <div class="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+
+    <!-- Image -->
+    <div class="md:w-1/2">
+      <img src="pos.png" alt="Moniepoint POS Machine" class="w-full h-auto rounded-xl shadow-lg" />
+    </div>
+
+    <!-- Text Content -->
+    <div class="md:w-1/2 text-center md:text-left">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Become a Moniepoint POS Agent
+      </h2>
+      <p class="text-gray-300 text-base md:text-lg mb-4">
+        Start your own agency banking business today. We provide fast and affordable Moniepoint POS terminals — no hidden charges.
+      </p>
+      <p class="text-gray-400 text-sm mb-6">
+        Get support, onboarding, and direct funding to your wallet. With Son of Grace Exchange, you’re not just buying a POS — you're building a business.
+      </p>
+
+      <a href="login.html" class="inline-block bg-gold text-black font-semibold px-6 py-3 rounded-lg shadow hover:bg-yellow-400 transition duration-300">
+        Go to Dashboard
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS SECTION -->
+<section class="bg-black text-white py-20 px-4">
+  <div class="max-w-5xl mx-auto text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">How It Works</h2>
+    <p class="text-gray-300 mb-12">Getting started is easy. We’ve made the process seamless for both new users and pro resellers.</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+      <div class="bg-white bg-opacity-5 p-6 rounded-xl shadow text-left">
+        <h3 class="text-gold font-semibold text-lg mb-2">1. Create Account</h3>
+        <p class="text-gray-400 text-sm">Register on our platform in less than 60 seconds and access your dashboard instantly.</p>
+      </div>
+      <div class="bg-white bg-opacity-5 p-6 rounded-xl shadow text-left">
+        <h3 class="text-gold font-semibold text-lg mb-2">2. Fund Wallet</h3>
+        <p class="text-gray-400 text-sm">Top up securely using bank transfer or online payment and begin transacting immediately.</p>
+      </div>
+      <div class="bg-white bg-opacity-5 p-6 rounded-xl shadow text-left">
+        <h3 class="text-gold font-semibold text-lg mb-2">3. Start Earning</h3>
+        <p class="text-gray-400 text-sm">Sell data, airtime, convert gift cards, or trade currency and earn on every transaction.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="bg-white text-black py-20 px-4">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+    <!-- Left: Text Content -->
+    <div>
+      <h2 class="text-sm font-semibold tracking-widest text-gold uppercase mb-2">Contact Us</h2>
+      <h3 class="text-3xl md:text-4xl font-bold text-black mb-4">Reach out to us</h3>
+      <p class="text-lg font-semibold mb-4">It’s as simple as saying “Hello”</p>
+      <p class="text-gray-700 mb-8">
+        We’d love to know more about your needs and how we can help.
+        Whether you're starting your VTU business, trading gift cards, or managing a POS fleet — we're here for you.
+      </p>
+
+      <!-- Contact Details -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm text-black">
+        <div>
+          <h4 class="text-gold font-semibold mb-1">Sales Enquiries – Nigeria</h4>
+          <p>📞 +234 810 825 5139</p>
+          <p>✉️ support@judesonofgrace.com</p>
+        </div>
+        <div>
+          <h4 class="text-gold font-semibold mb-1">Business Hours</h4>
+          <p>🕒 Mon - Sat: 8AM - 6PM</p>
+          <p>🌍 Online Support: 24/7</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Circular Contact Image -->
+    <div class="flex justify-center">
+      <img src="contact.png" alt="Contact Visual" class="rounded-full w-64 h-64 object-cover shadow-lg" />
+    </div>
+
+  </div>
+</section>
+<script>
+  feather.replace();
+</script>
+
+
+<!-- FOOTER -->
+<!-- CTA BANNER -->
+<section class="bg-gradient-to-r from-gold to-yellow-400 text-black py-6 px-6 rounded-t-2xl shadow-md">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+    <div class="text-center md:text-left">
+      <h2 class="text-xl md:text-2xl font-bold mb-1">Get Started with Son of Grace Exchange</h2>
+      <p class="text-sm">Instant wallet setup. Flexible services. Earn discounts.</p>
+    </div>
+    <div class="flex gap-4">
+      <a href="register.html" class="bg-black text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-900 transition">Register</a>
+      <a href="login.html" class="border border-black text-black px-5 py-2 rounded-full text-sm font-semibold hover:bg-black hover:text-white transition">Login</a>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN FOOTER -->
+<footer class="bg-black text-gray-400 pt-16 pb-8 px-6">
+  <div class="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 text-sm">
+
+    <!-- Services -->
+    <div>
+      <h4 class="text-white font-semibold mb-3">Services</h4>
+      <ul class="space-y-2">
+        <li><a href="#giftcards" class="hover:text-gold">Gift Card Exchange</a></li>
+        <li><a href="#vtu" class="hover:text-gold">Airtime & Data</a></li>
+        <li><a href="#pos" class="hover:text-gold">Moniepoint POS</a></li>
+        <li><a href="#crypto" class="hover:text-gold">Currency Swap</a></li>
+      </ul>
+    </div>
+
+    <!-- Resources -->
+    <div>
+      <h4 class="text-white font-semibold mb-3">Resources</h4>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-gold">How it Works</a></li>
+        <li><a href="#" class="hover:text-gold">Support</a></li>
+        <li><a href="#" class="hover:text-gold">FAQs</a></li>
+      </ul>
+    </div>
+
+    <!-- Pricing -->
+    <div>
+      <h4 class="text-white font-semibold mb-3">Pricing</h4>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-gold">Data Rates</a></li>
+        <li><a href="#" class="hover:text-gold">Commissions</a></li>
+        <li><a href="#" class="hover:text-gold">Reseller Tiers</a></li>
+      </ul>
+    </div>
+
+    <!-- Company -->
+    <div>
+      <h4 class="text-white font-semibold mb-3">Company</h4>
+      <ul class="space-y-2">
+        <li><a href="#about" class="hover:text-gold">About Us</a></li>
+        <li><a href="#contact" class="hover:text-gold">Contact</a></li>
+        <li><a href="#" class="hover:text-gold">Testimonials</a></li>
+      </ul>
+    </div>
+
+    <!-- Social -->
+    <div>
+      <h4 class="text-white font-semibold mb-3">Connect</h4>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-gold">Facebook</a></li>
+        <li><a href="#" class="hover:text-gold">Instagram</a></li>
+        <li><a href="#" class="hover:text-gold">WhatsApp</a></li>
+        <li><a href="#" class="hover:text-gold">Email</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="mt-12 pt-6 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+    <p>© 2025 Son of Grace Exchange. All rights reserved.</p>
+    <p class="mt-2 md:mt-0">All systems operational ✅</p>
+  </div>
+</footer>
+  <!-- JS for Sidebar -->
+  <script>
+    feather.replace();
+    const menuBtn = document.getElementById('menu-btn');
+    const closeBtn = document.getElementById('close-btn');
+    const sidebar = document.getElementById('mobile-sidebar');
+    const overlay = document.getElementById('overlay');
+
+    const openSidebar = () => {
+      sidebar.classList.remove('-translate-x-full');
+      overlay.classList.remove('hidden');
+    };
+
+    const closeSidebar = () => {
+      sidebar.classList.add('-translate-x-full');
+      overlay.classList.add('hidden');
+    };
+
+    menuBtn.addEventListener('click', openSidebar);
+    closeBtn.addEventListener('click', closeSidebar);
+    overlay.addEventListener('click', closeSidebar);
+  </script>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+  });
+</script>
+</body>
+</html>
